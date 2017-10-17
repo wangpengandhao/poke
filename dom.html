@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jQurey/jquery-3.2.1.js"></script>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.circle{
+		width: 50px;
+		height: 50px;
+		background: skyblue;
+		border-radius: 50%;
+		position: absolute;
+		top: calc(50% - 25px);
+		left: calc(50% - 25px);
+	}
+</style>
+<body>
+	
+</body>
+<script>
+	$(function(){
+		for(let i=0;i<50;i++){
+			let width=height=Math.floor(Math.random()*40+40);
+			let left=Math.floor(Math.random()*innerWidth-100),
+				top=Math.floor(Math.random()*innerHeight-100);
+			let r=Math.floor(Math.random()*256),
+				g=Math.floor(Math.random()*256),
+				b=Math.floor(Math.random()*256);
+			$('<div>').addClass('circle').appendTo(document.body).css({opacity:0,width,height,background:`rgb(${r},${g},${b})`}).delay(i*10).animate({top,left,opacity:1})
+		}
+	})
+</script>
+</html>
